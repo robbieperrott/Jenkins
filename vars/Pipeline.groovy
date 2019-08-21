@@ -9,7 +9,7 @@ def call(Map pipelineParams){
                 
             // SREGISTRY_CLIENT='registry'
             
-            SREGISTRY_CLIENT= '\''+ pipelineParams.client + '\''
+            SREGISTRY_CLIENT=pipelineParams.client.toString()
             // SREGISTRY_REGISTRY_BASE='http://nginx'
             // SREGISTRY_REGISTRY_USERNAME=pipelineParams.username
             // SREGISTRY_REGISTRY_TOKEN=pipelineParams.token
