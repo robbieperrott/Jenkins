@@ -3,17 +3,19 @@ def call(Map pipelineParams){
 
     pipeline {
         agent any
-    
+   
         environment {
-            SREGISTRY_CLIENT=pipelineParams.client
+            # Is this step necessary?
+                
+            SREGISTRY_CLIENT=pipelineParams.sr_client
             SREGISTRY_REGISTRY_BASE='http://nginx'
-            SREGISTRY_REGISTRY_USERNAME=pipelineParams.username
-            SREGISTRY_REGISTRY_TOKEN=pipelineParams.token
+            SREGISTRY_REGISTRY_USERNAME=pipelineParams.sr_username
+            SREGISTRY_REGISTRY_TOKEN=pipelineParams.sr_token
             
-            IMG = pipelineParams.image
-            RECIPE = pipelineParams.recipe
-            COLLECTION = pipelineParams.collection
-            CONTAINER = pipelineParams.container
+            IMG = pipelineParams.sr_image
+            RECIPE = pipelineParams.sr_recipe
+            COLLECTION = pipelineParams.sr_collection
+            CONTAINER = pipelineParams.sr_container
             
      }
 
