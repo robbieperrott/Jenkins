@@ -4,10 +4,10 @@ def call(Map pipelineParams){
     pipeline {
         agent any
         
-        environment {
+        //environment {
             // Is this step necessary?
                 
-            SREGISTRY_CLIENT=pipelineParams.client
+            //SREGISTRY_CLIENT=pipelineParams.client
             // SREGISTRY_REGISTRY_BASE='http://nginx'
             // SREGISTRY_REGISTRY_USERNAME=pipelineParams.username
             // SREGISTRY_REGISTRY_TOKEN=pipelineParams.token
@@ -17,7 +17,7 @@ def call(Map pipelineParams){
             // COLLECTION = pipelineParams.collection
             // CONTAINER = pipelineParams.container
             
-        }
+       // }
 
         stages {
             stage('Build') {
@@ -34,7 +34,7 @@ def call(Map pipelineParams){
             stage('Deploy') {
                 steps {
                     echo 'Deploying....'
-                    sh 'export SREGISTRY_CLIENT=' + pipelineParams.client
+                    //sh 'export SREGISTRY_CLIENT=' + pipelineParams.client
                     sh 'sregistry push ' + pipelineParams.image + ' --name=' + pipelineParams.collection + '/' + pipelineParams.container
                 }
             }
