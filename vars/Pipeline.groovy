@@ -4,7 +4,7 @@ def call(Map pipelineParams){
     pipeline {
         agent any
    
-        environment {
+        //environment {
             // Is this step necessary?
                 
             // SREGISTRY_CLIENT=pipelineParams.client
@@ -17,7 +17,7 @@ def call(Map pipelineParams){
             // COLLECTION = pipelineParams.collection
             // CONTAINER = pipelineParams.container
             
-     }
+     //}
 
         stages {
             stage('Build') {
