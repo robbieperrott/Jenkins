@@ -5,7 +5,7 @@ def call(Map pipelineParams){
         agent any
    
         environment {
-            # Is this step necessary?
+            // Is this step necessary?
                 
             SREGISTRY_CLIENT=pipelineParams.sr_client
             SREGISTRY_REGISTRY_BASE='http://nginx'
