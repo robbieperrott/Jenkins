@@ -26,7 +26,12 @@ def call(Map pipelineParams){
                 steps {
                     echo 'Deploying....'
                     sh 'export SREGISTRY_CLIENT=' + pipelineParams.client
-                    sh 'sregistry push ' + pipelineParams.image + ' --name=' + pipelineParams.collection + '/' + pipelineParams.container
+                    if (pipelineParams.tag = ""){
+                        sh 'sregistry push ' + pipelineParams.image + ' --name=' + pipelineParams.collection + '/' + pipelineParams.container
+                    }
+                    else {
+                         sh 'sregistry push ' + pipelineParams.image + ' --name=' + pipelineParams.collection + '/' + pipelineParams.container + ':' + pipelineParams.tag                   
+                    }
                 }
             }
         }
