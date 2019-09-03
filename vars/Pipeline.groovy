@@ -7,7 +7,7 @@ def call(Map pipelineParams){
         environment {
             
             SREGISTRY_CLIENT=pipelineParams.client.toString()
-            // SREGISTRY_REGISTRY_BASE='http://nginx'
+            SREGISTRY_REGISTRY_BASE='http://nginx'
        }
 
         stages {
