@@ -2,7 +2,9 @@
 def call(Map pipelineParams){
 
     pipeline {
-        agent { label 'docker-slave-31c0522090a3' }        
+        //agent { label 'docker-slave-31c0522090a3' }    
+        agent any
+        
         environment {
             
             SREGISTRY_CLIENT=pipelineParams.client.toString()
