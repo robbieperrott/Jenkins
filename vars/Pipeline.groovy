@@ -9,6 +9,7 @@ def call(Map pipelineParams){
             
             SREGISTRY_CLIENT=pipelineParams.client.toString()
             SREGISTRY_REGISTRY_BASE='http://nginx'
+            SREGISTRY_REGISTRY_USERNAME=pipelineParams.username.toString()
        }
 
         stages {
