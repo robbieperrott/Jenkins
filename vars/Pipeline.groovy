@@ -1,10 +1,3 @@
-def remote = [:]
-remote.name = 'hons2019b'
-remote.host = '154.114.37.247'
-remote.user = 'ubuntu'
-//remote.password = ''
-remote.allowAnyHosts = true
-
 def call(Map pipelineParams){
 
     pipeline {
@@ -45,10 +38,19 @@ def call(Map pipelineParams){
                     }
                 }
             }
-            
-            stage('Remote SSH') {
-                sshCommand remote: remote, command: "echo "Hello World" "
-            }
+        }
+    }
+    node {
+        
+        def remote = [:]
+        remote.name = 'hons2019b'
+        remote.host = '154.114.37.247'
+        remote.user = 'ubuntu'
+        //remote.password = ''
+        remote.allowAnyHosts = true
+        
+        stage('Remote SSH') {
+            sshCommand remote: remote, command: "echo "Hello World" "
         }
     }
 }
