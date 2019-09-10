@@ -14,10 +14,7 @@ def call(Map pipelineParams){
 
         stages {
             stage('Build') {
-                steps {
-                    echo 'Building..'
-                    sh 'singularity build ' + pipelineParams.image + ' ' + pipelineParams.recipe
-                }
+        
             }
             stage('Test') {
                 steps {
@@ -25,18 +22,7 @@ def call(Map pipelineParams){
                 }
             }
             stage('Deploy') {
-                steps {
-                    echo 'Deploying....'
-                    sh 'export SREGISTRY_CLIENT=' + pipelineParams.client
-                    script{
-                        if (pipelineParams.tag == ''){
-                            sh 'sregistry push ' + pipelineParams.image + ' --name=' + pipelineParams.collection + '/' + pipelineParams.container
-                        }
-                        else {
-                            sh 'sregistry push ' + pipelineParams.image + ' --name=' + pipelineParams.collection + '/' + pipelineParams.container + ':' + pipelineParams.tag                   
-                        }
-                    }
-                }
+               
             }
         }
     }
@@ -46,11 +32,11 @@ def call(Map pipelineParams){
         remote.name = 'hons2019b'
         remote.host = '154.114.37.247'
         remote.user = 'ubuntu'
-        //remote.password = ''
+        remote.password = ''
         remote.allowAnyHosts = true
         
         stage('Remote SSH') {
-            sshCommand remote: remote, command: "echo "Hello World" "
+            sshCommand remote: remote, command: "sudo echo "Hello World" "
         }
     }
 }
