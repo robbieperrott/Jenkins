@@ -45,12 +45,12 @@ def call(Map pipelineParams){
                     }
                 }
             }
-            //stage('Remote SSH') {
+            stage('Remote SSH') {
                 //sshCommand remote: remote, command: "sudo echo "Hello World" "
-                //steps {
-                    //echo 'Remote SSH...'
-               // }
-            //}
+                steps {
+                    sh 'ssh ubuntu@' + pipelineParams.targetVM + ' uname'
+                }
+            }
         }
     }
 }
