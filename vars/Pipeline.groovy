@@ -45,21 +45,11 @@ def call(Map pipelineParams){
                     }
                 }
             }
+            stage('Remote SSH') {
+            sshCommand remote: remote, command: "sudo echo "Hello World" "
+            }
         }
     }
-    //node {
-        
-        //def remote = [:]
-        //remote.name = 'hons2019b'
-        //remote.host = '154.114.37.247'
-        //remote.user = 'ubuntu'
-        //remote.password = ''
-        //remote.allowAnyHosts = true
-        
-        //stage('Remote SSH') {
-            //sshCommand remote: remote, command: "sudo echo "Hello World" "
-        //}
-    //}
 }
 
 
