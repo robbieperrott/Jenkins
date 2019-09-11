@@ -1,9 +1,9 @@
-def remote = [:]
-remote.name = 'hons2019b'
-remote.host = '154.114.37.247'
-remote.user = 'ubuntu'
-remote.password = ''
-remote.allowAnyHosts = true
+//def remote = [:]
+//remote.name = 'hons2019b'
+//remote.host = '154.114.37.247'
+//remote.user = 'ubuntu'
+//remote.password = ''
+//remote.allowAnyHosts = true
 
 def call(Map pipelineParams){
 
@@ -46,7 +46,10 @@ def call(Map pipelineParams){
                 }
             }
             stage('Remote SSH') {
-            sshCommand remote: remote, command: "sudo echo "Hello World" "
+                //sshCommand remote: remote, command: "sudo echo "Hello World" "
+                steps {
+                    echo 'Remote SSH...'
+                }
             }
         }
     }
