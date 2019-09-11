@@ -48,7 +48,7 @@ def call(Map pipelineParams){
             stage('Remote SSH') {
                 //sshCommand remote: remote, command: "sudo echo "Hello World" "
                 steps {
-                    sh 'ssh ubuntu@' + pipelineParams.targetVM + ' uname'
+                    sh 'ssh ubuntu@' + pipelineParams.targetVM + 'sregistry pull demo/test-container2'
                 }
             }
         }
