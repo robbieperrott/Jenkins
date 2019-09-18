@@ -1,14 +1,7 @@
-//def remote = [:]
-//remote.name = 'hons2019b'
-//remote.host = '154.114.37.247'
-//remote.user = 'ubuntu'
-//remote.password = ''
-//remote.allowAnyHosts = true
-
 def call(Map pipelineParams){
 
     pipeline {
-        //agent { label 'docker-slave-31c0522090a3' }    
+        
         agent any
         
         environment {
